@@ -202,8 +202,8 @@ Glow.provide(function(glow) {
 				if ( propName.indexOf('color') !== -1 ) {
 					animateColor(anim, stylePropName, from, to);
 				}
-				// nice special case for IE
-				else if (glow.env.ie && stylePropName === 'opacity') {
+				// nice special case for IE 6 - 8
+				else if (glow.env.ie < 9 && stylePropName === 'opacity') {
 					animateIeOpacity(nodeList[i], anim, from, to);
 				}
 				// assume we're dealing with simple numbers, or numbers + unit

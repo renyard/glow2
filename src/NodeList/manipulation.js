@@ -28,7 +28,7 @@ Glow.provide(function(glow) {
 				item,
 				itemParent;
 			
-			if (!this.length) { return this; }
+			if (!this.length) {return this;}
 			
 			// normalise 'elements'
 			// if we're dealing with append/prepend then strings are always treated as HTML strings
@@ -80,7 +80,7 @@ Glow.provide(function(glow) {
 				nextFragmentToAdd,
 				item;
 			
-			if (!this.length) { return this; }
+			if (!this.length) {return this;}
 			
 			// normalise 'elements'
 			// if we're dealing with append/prepend then strings are always treated as HTML strings
@@ -589,6 +589,11 @@ Glow.provide(function(glow) {
 		// getting
 		var node = this[0],
 			i;
+
+		//	If undefined is passed in, treat as empty string
+		if (arguments.length > 0 && htmlString === undefined) {
+			htmlString = '';
+		}
 
 		if (htmlString === undefined) {
 			return node ? node.innerHTML : '';

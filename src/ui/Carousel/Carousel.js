@@ -241,7 +241,7 @@ Glow.provide(function(glow) {
 			'this' is the Carousel
 	*/
 	function prevMouseDown(event) {
-		if (event.button === 0) {
+		if (event.button === 0 || (glow.env.ie === 9 && event.button === 1)) {
 			this._pane.moveStart(true);
 			return false;
 		}
@@ -254,7 +254,7 @@ Glow.provide(function(glow) {
 			'this' is the Carousel
 	*/
 	function nextMouseDown(event) {
-		if (event.button === 0) {
+		if (event.button === 0 || (glow.env.ie === 9 && event.button === 1)) {
 			this._pane.moveStart();
 			return false;
 		}
