@@ -22,6 +22,7 @@
 	<property name="DOCS_DIR"     value="${DIST_DIR}/docs/" />
 
 	<property name="SIZZLE_DIR"   value="${ROOT_DIR}/src/NodeList/_sizzle/sizzle/" />
+	<property name="REQUIREJS_DIR" value="${ROOT_DIR}/test/lib/requirejs/" />
 	<property name="QUNIT_DIR"    value="${ROOT_DIR}/test/unit/lib/qunit/" />
 	<property name="WOOSH_DIR"    value="${ROOT_DIR}/test/speed/lib/woosh/" />
 	
@@ -59,6 +60,13 @@
 			<regexpmapper from="^[^\/]*\/(.*)" to="\1"/>
 		</untar>
 		<replaceregexp match="// EXPOSE" replace="${SIZZLE-EXPORTS}" file="${SIZZLE_DIR}/sizzle.js" />
+
+		<delete dir="${REQUIREJS_DIR}" />
+		<mkdir dir="${REQUIREJS_DIR}" />
+		<get dest="${temp.zip}" src="${REQUIREJS_URL}" />
+		<untar dest="${REQUIREJS_DIR}" src="${temp.zip}" compression="gzip">
+			<regexpmapper from="^[^\/]*\/(.*)" to="\1"/>
+		</untar>
 
 		<delete dir="${QUNIT_DIR}" />
 		<mkdir dir="${QUNIT_DIR}" />
